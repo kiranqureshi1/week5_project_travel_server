@@ -1,0 +1,5 @@
+require('sinatra')
+require('sinatra/contrib/all')
+require('pry')
+require_relative('models/city.rb')
+require_relative('models/countries.rb')
