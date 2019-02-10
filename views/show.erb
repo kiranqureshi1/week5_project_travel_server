@@ -1,5 +1,6 @@
-<p><%= @country.name%></p>
 <p><a href="/travel/countries/<%= @country.id %>/edit">Edit Country</a></p>
-<form method="post" action="/travel/countries/<%= @country.id %>/delete">
+<form method="post" action="/travel/countries">
   <input type="submit" value="Remove country"/>
 </form>
+
+<p><%= @country.name%></p>

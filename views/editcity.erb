@@ -1,0 +1,35 @@
+<form method="post" action="/travel/countries/cities">
+  <label for="name-field">name:</label>
+  <input
+  type="text"
+  name="name"
+  id="name-field"
+  value="<%= @city.name %>"
+  />
+
+  <label for="visit-status-field">name:</label>
+  <input
+  type="text"
+  name="visit_status"
+  id="visit_status-field"
+  value="<%= @city.visit_status %>"
+  />
+
+  <label for="number_of_visits-field">name:</label>
+  <input
+  type="text"
+  name="number_of_visits"
+  id="number_of_visits-field"
+  value="<%= @city.number_of_visits %>"
+  />
+
+  <label for="country-field">name:</label>
+  <input
+  type="text"
+  name="country_id"
+  id="country-field"
+  value="<%= @city.find_country_name %>"
+  />
+
+  <input type='submit' value="Edit city">
+</form>
