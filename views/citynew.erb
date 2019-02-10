@@ -1,0 +1,22 @@
+<form method = "post" action = "/travel/countries/cities">
+  <label for="name"> name:</label>
+  <input id="name" type="text" name="name"/>
+
+  <label for="visit_status"> visit_status:</label>
+  <input id="visit_status" type="checkbox" name="visit_status"/>
+
+  <label for="number_of_visits"> number_of_visits:</label>
+  <input id="number_of_visits" type="number" name="number_of_visits"/>
+
+  <label for="country_id"> country:</label>
+  <select id="country_id" name="country_id"/>
+  <% @countries.each do |country| %>
+  <option value=<%= country.id%>><%= country.name%></option>
+  <% end %>
+</select>
+
+
+<input type="submit" value="Add city">
+
+
+</form>

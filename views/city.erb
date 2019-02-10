@@ -1,3 +1,7 @@
-<p><% @countries.each do |country|%>
-  <p>city: <%= country.find_city_name() %><p/>
+<% @cities.each do |city|%>
+  <p>city: <%= city.name %><p/>
+  <p>visit_status: <%= city.visit_status %></p>
+  <p>number_of_visits: <%= city.number_of_visits %></p>
+  <p>country: <%= city.find_country_name %></p>
+  <hr />
   <% end %>

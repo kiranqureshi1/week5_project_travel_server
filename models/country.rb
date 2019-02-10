@@ -22,6 +22,7 @@ class Country
     values = [@id]
     return SqlRunner.run(sql, values)[0]['name'].to_s
   end
+  
 
   def save
     sql = "INSERT INTO countries(name) VALUES($1) RETURNING id"

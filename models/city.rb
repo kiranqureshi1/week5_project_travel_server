@@ -9,7 +9,7 @@ class City
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @visit_status = options['visit_status']
+    @visit_status = options['visit_status'] = false
     @number_of_visits = options['number_of_visits']
     @country_id = options['country_id']
   end
