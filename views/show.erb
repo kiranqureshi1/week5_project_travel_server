@@ -1,0 +1,5 @@
+<p><%= @find.name%></p>
+
+<p><% @find.each do |country|%>
+  <p>city: <%= country.find_city_name() %><p/>
+  <% end %>

@@ -2,8 +2,8 @@ require_relative('../db/sql_runner.rb')
 
 class Country
 
-  attr_reader :id
   attr_accessor :name
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -15,6 +15,12 @@ class Country
     values = [@id]
     city = SqlRunner.run(sql, values)
     return City.new(city.first)
+  end
+
+  def find_city_name
+    sql = "SELECT name FROM cities WHERE country_id = $1"
+    values = [@id]
+    return SqlRunner.run(sql, values)[0]['name'].to_s
   end
 
   def save
@@ -36,11 +42,12 @@ class Country
     SqlRunner.run(sql, values)
   end
 
-  def self.find(id)
+  def self.find( id )
     sql = "SELECT * FROM countries WHERE id = $1"
-    values = [@id]
-    country = SqlRunner.run(sql, values)
-    return Country.new(country.first)
+    values = [id]
+    country = SqlRunner.run( sql, values )
+    result = Country.new( country.first )
+    return result
   end
 
   def self.list_all

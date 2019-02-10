@@ -1,0 +1,4 @@
+<% @countries.each do |country| %>
+<p><a href="/countries/<%=country.id%>"><%= country.name %></p>
+<% end %>
+<p><a href="/countries/new">Add Country</a></p>

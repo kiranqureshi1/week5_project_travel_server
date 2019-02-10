@@ -15,6 +15,8 @@ country_2.save()
 country_3.save()
 country_4.save()
 
+Country.find(country_1.id)
+
 city_1 = City.new({"name" => "Edinburgh", "visit_status" => true, "number_of_visits" => 2, "country_id" => country_1.id })
 city_2 = City.new({"name" => "Paris", "visit_status" => true, "number_of_visits" => 1, "country_id" => country_4.id })
 city_3 = City.new({"name" => "Beijing", "visit_status" => false, "number_of_visits" => 0, "country_id" => country_2.id })
