@@ -1,4 +1,4 @@
-<form method="post" action="/travel/countries/cities">
+<form method="post" action="/travel/countries/cities/<%= @city.id %>">
   <label for="name-field">name:</label>
   <input
   type="text"
@@ -7,23 +7,23 @@
   value="<%= @city.name %>"
   />
 
-  <label for="visit-status-field">name:</label>
+  <label for="visit-status-field">visit_status:</label>
   <input
-  type="text"
+  type="checkbox"
   name="visit_status"
   id="visit_status-field"
   value="<%= @city.visit_status %>"
   />
 
-  <label for="number_of_visits-field">name:</label>
+  <label for="number_of_visits-field">number_of_visits:</label>
   <input
-  type="text"
+  type="number"
   name="number_of_visits"
   id="number_of_visits-field"
   value="<%= @city.number_of_visits %>"
   />
 
-  <label for="country-field">name:</label>
+  <label for="country-field">country:</label>
   <input
   type="text"
   name="country_id"

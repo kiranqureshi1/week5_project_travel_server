@@ -24,9 +24,9 @@ class City
   def find_country_name
     sql = "SELECT name FROM countries WHERE countries.id = $1"
     values = [@country_id]
-    return SqlRunner.run(sql, values)[0]['name'].to_s
+    SqlRunner.run(sql, values)[0]['name']
+    # binding.pry
   end
-
   def save
     sql = "INSERT INTO cities(name, visit_status, number_of_visits, country_id) VALUES($1, $2, $3, $4) RETURNING id"
     values = [@name, @visit_status, @number_of_visits, @country_id]
@@ -34,7 +34,7 @@ class City
   end
 
   def update
-    sql = "UPDATE countries(name, visit_status, number_of_visits, country_id) SET ($1, $2, $3, $4) WHERE id = $5"
+    sql = "UPDATE cities SET(name, visit_status, number_of_visits, country_id) = ($1, $2, $3, $4) WHERE id = $5"
     values = [@name, @visit_status, @number_of_visits, @country_id, @id]
     SqlRunner.run(sql, values)
   end
@@ -47,10 +47,11 @@ class City
 
   def self.find(id)
     sql = "SELECT * FROM cities WHERE id = $1"
-    values = [@id]
+    values = [id]
     city = SqlRunner.run(sql, values)
     return City.new(city.first)
   end
+
 
   def self.list_all
     sql = "SELECT * FROM cities"

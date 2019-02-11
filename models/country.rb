@@ -22,7 +22,7 @@ class Country
     values = [@id]
     return SqlRunner.run(sql, values)[0]['name'].to_s
   end
-  
+
 
   def save
     sql = "INSERT INTO countries(name) VALUES($1) RETURNING id"
@@ -32,7 +32,7 @@ class Country
 
 
   def update
-    sql = "UPDATE countries SET(name) = ($1) WHERE id = $2"
+    sql = "UPDATE countries SET name = $1 WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run(sql, values)
   end
