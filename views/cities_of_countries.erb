@@ -4,5 +4,11 @@
   <p>visit_status: <%= city.visit_status %></p>
   <p>number_of_visits: <%= city.number_of_visits %></p>
   <p>country: <%= city.find_country_name %></p>
+  <p><a href="/travel/countries/cities/<%= city.id %>/edit">Edit City</a></p>
+  <form method="post" action="/travel/countries/cities/<%= city.id %>/delete">
+    <input type="submit" value="delete"/>
+  </form>
   <hr />
   <% end %>
+
+  <p><a href="/travel/countries/cities/new">Add City</a></p>
