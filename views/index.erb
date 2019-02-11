@@ -1,4 +1,7 @@
+<h1> Countries </h1>
+
 <% @countries.each do |country| %>
 <p><a href="/travel/countries/<%=country.id%>"><%= country.name %></a></p>
+<p><a href="/travel/countries/<%=country.id%>/cities">Cities</a></p>
 <% end %>
 <p><a href="/travel/countries/new">Add another journey</a></p>

@@ -38,6 +38,11 @@ get '/travel/countries/:id' do
   erb(:show)
 end
 
+get '/travel/countries/:id/cities' do
+  @country = Country.find(params[:id].to_i)
+  erb(:cities_of_countries)
+end
+
 get '/travel/countries/cities/:id' do
   @city = City.find(params[:id])
   # erb(:showcity)

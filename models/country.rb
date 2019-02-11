@@ -17,6 +17,13 @@ class Country
     return City.new(city.first)
   end
 
+  def find_city_list
+    sql = "SELECT * FROM cities WHERE country_id = $1"
+    values = [@id]
+    cities = SqlRunner.run(sql, values)
+    return cities.map {|city| City.new(city)}
+  end
+
   def find_city_name
     sql = "SELECT name FROM cities WHERE country_id = $1"
     values = [@id]
