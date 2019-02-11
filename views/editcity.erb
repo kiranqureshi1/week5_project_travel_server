@@ -23,13 +23,13 @@
   value="<%= @city.number_of_visits %>"
   />
 
-  <label for="country-field">country:</label>
-  <input
-  type="text"
-  name="country_id"
-  id="country-field"
-  value="<%= @city.find_country_name %>"
-  />
+  
+  <label for="country_id"> country:</label>
+  <select id="country_id" name="country_id"/>
+  <% @countries.each do |country| %>
+  <option value=<%= country.id%>><%= country.name%></option>
+  <% end %>
+</select>
 
   <input type='submit' value="Edit city">
 </form>

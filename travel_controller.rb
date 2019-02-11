@@ -50,6 +50,7 @@ end
 
 get '/travel/countries/cities/:id/edit' do
   @city = City.find(params[:id])
+  @countries = Country.list_all()
   erb (:editcity)
 end
 
