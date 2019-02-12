@@ -6,7 +6,6 @@ require_relative('models/country.rb')
 also_reload('./models/*')
 require('pry')
 
-# <p><a href="/countries/:id/update"> <a href="/countries/:id/delete"><a href="/countries/:id/add-info"><a href ="countries/:id/view">edit delete Add-info View</p>
 
 
 get '/travel' do
@@ -78,22 +77,15 @@ post '/travel/countries/cities/new' do # create
   redirect to '/travel/countries/cities'
 end
 
-# post '/travel/countries/:id/edit' do
-#   @country = Country.find(params[:id])
-#   erb (:editcountry)
-# end
-
-# post '/travel/countries/cities/:id/edit' do
-#   @city = City.find(params[:id])
-#   erb (:editcity)
-# end
-
 post '/travel/countries/:id' do # update
   Country.new( params ).update
   redirect to '/travel/countries'
 end
 
 post '/travel/countries/cities/:id' do # update
+  if params['visit_status'] == nil
+    params['visit_status'] = false
+  end
   City.new( params ).update
   redirect to '/travel/countries/cities'
 end
