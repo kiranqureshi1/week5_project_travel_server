@@ -1,6 +1,7 @@
-<form>
+<form method="post" action="/travel<%= @city.id %>">
   <label for = "blog"> Write about your Journey</label>
   <br>
   <textarea id="blog" name="blog" rows="30" cols = "100">
     </textarea>
+    <input type='submit' value="save">
 </form>

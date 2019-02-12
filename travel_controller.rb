@@ -4,6 +4,7 @@ require('pry')
 require_relative('models/city.rb')
 require_relative('models/country.rb')
 also_reload('./models/*')
+require('pry')
 
 # <p><a href="/countries/:id/update"> <a href="/countries/:id/delete"><a href="/countries/:id/add-info"><a href ="countries/:id/view">edit delete Add-info View</p>
 
@@ -68,6 +69,9 @@ end
 
 
 post '/travel/countries/cities/new' do # create
+  if params['visit_status'] == nil
+    params['visit_status'] = false
+  end
   @city = City.new( params )
   @city.save()
   redirect to '/travel/countries/cities'
