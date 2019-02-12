@@ -43,10 +43,10 @@ get '/travel/countries/:id/cities' do
   erb(:cities_of_countries)
 end
 
-get '/travel/countries/cities/:id' do
-  @city = City.find(params[:id])
-  # erb(:showcity)
-end
+# get '/travel/countries/cities/:id' do
+#   @city = City.find(params[:id])
+#   # erb(:showcity)
+# end
 
 get '/travel/countries/:id/edit' do
   @country = Country.find(params[:id])
@@ -60,16 +60,17 @@ get '/travel/countries/cities/:id/edit' do
 end
 
 
-post '/travel/countries' do # create
+post '/travel/countries/new' do # create
   @country = Country.new( params )
   @country.save()
+  redirect to '/travel/countries'
 end
 
 
-post '/travel/countries/cities' do # create
+post '/travel/countries/cities/new' do # create
   @city = City.new( params )
   @city.save()
-  redirect to '/travel'
+  redirect to '/travel/countries/cities'
 end
 
 # post '/travel/countries/:id/edit' do
