@@ -10,12 +10,12 @@ class Country
     @name = options['name']
   end
 
-  def find_city
-    sql = "SELECT * FROM cities WHERE country_id = $1"
-    values = [@id]
-    city = SqlRunner.run(sql, values)
-    return City.new(city.first)
-  end
+  # def find_city
+  #   sql = "SELECT * FROM cities WHERE country_id = $1"
+  #   values = [@id]
+  #   city = SqlRunner.run(sql, values)
+  #   return City.new(city.first)
+  # end
 
   def find_city_list
     sql = "SELECT * FROM cities WHERE country_id = $1"
