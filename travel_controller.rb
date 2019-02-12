@@ -69,7 +69,7 @@ end
 post '/travel/countries/cities' do # create
   @city = City.new( params )
   @city.save()
-  redirect to '/travel/countries/cities'
+  redirect to '/travel'
 end
 
 # post '/travel/countries/:id/edit' do
