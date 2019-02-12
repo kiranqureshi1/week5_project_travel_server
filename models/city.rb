@@ -9,7 +9,7 @@ class City
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @visit_status = options['visit_status'] = false
+    @visit_status = options['visit_status']
     @number_of_visits = options['number_of_visits']
     @country_id = options['country_id']
   end
@@ -27,6 +27,7 @@ class City
     SqlRunner.run(sql, values)[0]['name']
     # binding.pry
   end
+
   def save
     sql = "INSERT INTO cities(name, visit_status, number_of_visits, country_id) VALUES($1, $2, $3, $4) RETURNING id"
     values = [@name, @visit_status, @number_of_visits, @country_id]
