@@ -14,12 +14,12 @@ end
 
 get '/visited' do
   @cities = City.visited
-  erb(:travel)
+  erb(:visited)
 end
 
 get '/not_visited' do
   @cities = City.not_visited
-  erb(:travel)
+  erb(:not_visited)
 end
 
 

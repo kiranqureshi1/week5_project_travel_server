@@ -81,6 +81,7 @@ class City
     return cities.map {|city| City.new(city)}
   end
 
+
   def City.not_visited
     sql = "SELECT * FROM cities WHERE visit_status = false"
     cities = SqlRunner.run(sql)
