@@ -12,12 +12,12 @@ get '/travel' do
   erb(:indexfirst)
 end
 
-get '/visited' do
+get '/travel/visited' do
   @cities = City.visited
   erb(:visited)
 end
 
-get '/not_visited' do
+get '/travel/not_visited' do
   @cities = City.not_visited
   erb(:not_visited)
 end
